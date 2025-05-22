@@ -1,10 +1,10 @@
 import Todo from './Todo';
 
-const TodoList = (todos) => {
+const TodoList = ({ todos, deleteTodo }) => {
   return(
     <div className="space-y-6">
-      {todos.todos.map((todo) => (
-        <Todo key={todo.id} todo_name={todo.todo_name} />
+      {todos.map((todo) => (
+        <Todo key={todo.id} id={todo.id} completed={todo.completed} todo_name={todo.todo_name} deleteTodo={deleteTodo} />
       ))}
     </div>
   );
