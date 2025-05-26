@@ -26,3 +26,17 @@ export const update_list = async (id, name) => {
   return response.data;
 }
 
+
+const GET_TASKS_URL = (id) => `${BASE_URL}lists/${id}/tasks`;
+const POST_TASK_URL = (id) => `${BASE_URL}lists/${id}/tasks`;
+
+export const get_tasks = async(id) => {
+  const respose = await axios.get(GET_TASKS_URL(id));
+  return respose.data;
+}
+
+export const create_task = async (listId, name) => { 
+  const response = await axios.post(POST_TASK_URL(listId), {"title": name, "completed": false});
+  return response.data;
+}
+
